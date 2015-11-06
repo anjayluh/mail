@@ -25,7 +25,15 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-
+<div id="header">
+<div id="left">
+    <label>Gulu-Gulu</label>
+	</div>
+    <!--<div id="right">
+     <!--<div id="content">
+         hi' <?php echo $userRow['username']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>
+        </div></div>-->
+    </div>
     <!--<?=$thankYou ?>-->
 <center>
     <form method="post" action="contact.php">

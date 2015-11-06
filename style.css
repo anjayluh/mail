@@ -108,3 +108,13 @@ table tr td a
 }
 
 /* css for home page */
+
+button:hover{
+color:#9999CC;
+}
+caption{
+padding-top: inherit;
+font-family:"Courier New", Courier, monospace;
+font-weight:bold;
+font-size:18px;
+}

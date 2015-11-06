@@ -6,7 +6,7 @@ if(!isset($_SESSION['user']))
 {
  header("Location: index.php");
 }
-$res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
+$res=mysql_query("SELECT * FROM users WHERE id=".$_SESSION['user']);
 $userRow=mysql_fetch_array($res);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,7 +19,7 @@ $userRow=mysql_fetch_array($res);
 <body>
 <div id="header">
  <div id="left">
-    <label>cleartuts</label>
+    <label>Gulu-Gulu</label>
     </div>
     <div id="right">
      <div id="content">
