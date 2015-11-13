@@ -19,7 +19,7 @@ $userRow=mysql_fetch_array($res);
 <body>
 <div id="header">
  <div id="left">
-    <label>Gulu-Gulu</label>
+    <label>Posta!</label>
     </div>
     <div id="right">
      <div id="content">

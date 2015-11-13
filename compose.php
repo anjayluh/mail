@@ -1,19 +1,31 @@
 <?php
+session_start();
+if(isset($_SESSION['user'])!="")
+{
+ header("Location: home.php");
+}
+include_once 'dbconnect.php';
 
 if (isset($_POST["submit"])) {
-    $recipient="your@email.address";
-    $subject="Form to email message";
-    $sender=$_POST["sender"];
-    $senderEmail=$_POST["senderEmail"];
-    $message=$_POST["message"];
-
-    $mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
-
-    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
-
-    $thankYou="<p>Thank you! Your message has been sent.</p>";
+	//Codes
+    $address = mysql_real_escape_string($_POST['address']);
+    $subject = mysql_real_escape_string($_POST['subject']);
+    $message = mysql_real_escape_string($_POST['message']);
+	$status = mysql_real_escape_string($_POST['status']);
+	//post to db
+if (mysql_query("INSERT INTO mail(address, subject, message, status) values('$address', '$subject', '$message', '$status')"))
+{
+  ?>
+        <script>alert('successfully added message ');</script>
+        <?php
+ }
+ else
+ {
+  ?>
+        <script>alert('error while adding message');</script>
+        <?php
+ }
 }
-
 ?>
 <!DOCTYPE html>
 
@@ -26,17 +38,17 @@ if (isset($_POST["submit"])) {
 
 <body>
 <div id="header">
-<div id="left">
-    <label>Gulu-Gulu</label>
-	</div>
-    <!--<div id="right">
-     <!--<div id="content">
-         hi' <?php echo $userRow['username']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>
-        </div></div>-->
+ <div id="left">
+    <label>Posta!</label>
     </div>
-    <!--<?=$thankYou ?>-->
+    <div id="right">
+     <div id="content">
+         Hello
+        </div>
+    </div>
+</div>
 <center>
-    <form method="post" action="contact.php">
+    <form method="post" action="compose.php">
 	<table align="center" width="30%" border="0">
 	<caption> Compose mail below</caption>
 	<tr>
@@ -45,16 +57,23 @@ if (isset($_POST["submit"])) {
 <tr>
 <td>
         <label>Subject:</label>
-        <input name="subject"></tr>
-		</td>
+        <input name="subject">
+		</td></tr>
 <tr>
 
 <td>
         <label>Message:</label>
-        <textarea rows="5" cols="20" name="message" maxlength="500" size= ""></textarea></tr> </td>
-
+        <textarea rows="5" cols="20" name="message" maxlength="500" size= ""></textarea></td></tr>
+		<tr><td>
+		Status
+		<select name="status">
+		<option>Select here</option>
+		<option value ="1">Sent</option>
+		<option value ="0">Not sent</option>
+		</select></td></tr>
+      
        <tr>
-<td> <button type="submit" name="submit" >Click here to send</button>
+<td> <button type="submit" name="submit" >Click here add</button>
 </td></tr>
 </table>
     </form>

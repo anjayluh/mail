@@ -30,19 +30,16 @@ if(isset($_POST['btn-login']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Gulu-Gulu Login | Register</title>
+<title>Posta! Login | Register</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
 
 <div id="header">
 <div id="left">
-    <label>Gulu-Gulu</label>
+    <label>Posta!</label>
 	</div>
-    <!--<div id="right">
-     <!--<div id="content">
-         hi' <?php echo $userRow['username']; ?>&nbsp;<a href="logout.php?logout">Sign Out</a>
-        </div></div>-->
+   
     </div>
 <center>
 <div id="login-form">
