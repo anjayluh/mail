@@ -1,13 +1,100 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <title>phpMyAdmin</title>
-    <link rel="stylesheet" type="text/css" href="phpmyadmin.css.php?server=1&amp;token=7a1450d7a6f61daee0cb5c182c806cd9&amp;js_frame=right&amp;nocache=5560298385" />
-    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/jquery/jquery-ui-1.8.16.custom.css" />
-    <meta name="robots" content="noindex,nofollow" />
-</head><body><p>export.php: Missing parameter: what<a href="Documentation.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help" /></a><br />export.php: Missing parameter: export_type<a href="Documentation.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help" /></a><br /></p></body></html>
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 16, 2015 at 03:48 PM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.4.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `web-sys2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `confirm`
+--
+
+CREATE TABLE IF NOT EXISTS `confirm` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` varchar(128) NOT NULL,
+  `key` varchar(128) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mail`
+--
+
+CREATE TABLE IF NOT EXISTS `mail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(250) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `status` binary(1) NOT NULL DEFAULT '0',
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `mail`
+--
+
+INSERT INTO `mail` (`id`, `address`, `subject`, `message`, `status`, `date`) VALUES
+(1, 'address', 'message', 'body', '0', '0000-00-00'),
+(2, 'a@gmail.com', 'a', 'a', '0', '0000-00-00'),
+(3, 'a@gmail.com', 'a', 'eh eh!', '0', '0000-00-00'),
+(4, 'a@gmail.com', 'a', 'a', 's', '0000-00-00'),
+(5, 'a@gmail.com', 'a', 'a', 's', '0000-00-00'),
+(6, 'a@gmail.com', 'a', 'a', '\0', '0000-00-00'),
+(7, 'a@gmail.com', 'a', 'a', '\0', '0000-00-00'),
+(8, 'a@gmail.com', 'a', 'a', '1', '0000-00-00'),
+(9, 'aa', 'aa', 'aa', '1', '0000-00-00'),
+(10, 'AA', 'AA', 'AA', '1', '0000-00-00'),
+(11, 'blalalalalala', 'blalalala', 'blalalalala', '1', '2015-11-16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `active` binary(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `active`) VALUES
+(27, 'name', 'lueshhilda@gmail.com', 'luesh', 'e31ebf7caf5404e8204dfe2bdee3f8ef', '0'),
+(28, '', 'b@gmail.com', '', '92eb5ffee6ae2fec3ad71c777531578f', '0'),
+(30, '', 'c@gmail.com', 'c', '4a8a08f09d37b73795649038408b5f33', '0'),
+(31, '', 'ella@gmail.com', 'ella', 'ec5e1e94c042dda33822701a45eb5e30', '0');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

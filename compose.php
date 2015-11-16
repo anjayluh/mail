@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])!="")
-{
- header("Location: home.php");
-}
+
 include_once 'dbconnect.php';
 
 if (isset($_POST["submit"])) {
@@ -13,7 +9,7 @@ if (isset($_POST["submit"])) {
     $message = mysql_real_escape_string($_POST['message']);
 	$status = mysql_real_escape_string($_POST['status']);
 	//post to db
-if (mysql_query("INSERT INTO mail(address, subject, message, status) values('$address', '$subject', '$message', '$status')"))
+if (mysql_query("INSERT INTO mail(address, subject, message, status, date) values('$address', '$subject', '$message', '$status',now())"))
 {
   ?>
         <script>alert('successfully added message ');</script>
@@ -27,6 +23,7 @@ if (mysql_query("INSERT INTO mail(address, subject, message, status) values('$ad
  }
 }
 ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -43,9 +40,15 @@ if (mysql_query("INSERT INTO mail(address, subject, message, status) values('$ad
     </div>
     <div id="right">
      <div id="content">
-         Hello
         </div>
     </div>
+	
+	<div id="center">
+	<a href="home.php">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+	<a href="compose.php">Compose mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+	<a href="sent.php">View Sent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+	<a href="unsent.php">View Unsent</a>
+	</div>
 </div>
 <center>
     <form method="post" action="compose.php">
