@@ -76,7 +76,7 @@ if (mysql_query("INSERT INTO mail(address, subject, message, status, date) value
 		</select></td></tr>
       
        <tr>
-<td> <button type="submit" name="submit" >Click here add</button>
+<td> <button type="submit" name="submit" >Click here to add</button>
 </td></tr>
 </table>
     </form>

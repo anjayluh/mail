@@ -28,7 +28,7 @@
 </html>
 <?php
 include_once 'dbconnect.php';
-$result = mysql_query("SELECT * FROM mail WHERE status IN (1)"); 
+$result = mysql_query("SELECT * FROM mail WHERE status IN (0)"); 
 echo "<center>";
 
 echo "<table border='1'>
@@ -52,7 +52,12 @@ while($row = mysql_fetch_array($result))
    echo "<td>" . $row['message'] . "</td>";
    echo "<td>" . $row['date'] . "</td>";
    echo "</tr>";
-
+echo <<<"buttons"
+  <td>
+     <input class="button_normal" type="button" value="Send via gmail" onclick="window.open('https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1')"/>; 
+     <input class="button_normal" type="button" value="Send via Yahoo" onclick="window.open('https://www.yahoo.co.uk')"/>
+  </td>    
+buttons;
    }
  echo "</table>";
  ?>
