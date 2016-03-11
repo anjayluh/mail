@@ -44,7 +44,7 @@ if(isset($_POST['btn-signup']))
 <center>
 <div id="login-form">
 <form method="post">
-<table align="center" width="30%" border="0">
+<table width="30%" border="0">
 <tr>
 <td><input type="text" name="username" placeholder="User Name" required /></td>
 </tr>

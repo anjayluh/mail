@@ -10,10 +10,7 @@
  <div id="left">
     <label>Posta!</label>
     </div>
-    <div id="right">
-     <div id="content">
-        </div>
-    </div>
+   
 	
 	<div id="center">
 	<a href="home.php">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
